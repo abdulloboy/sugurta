@@ -15,6 +15,8 @@ class CreateRisksTable extends Migration
     {
         Schema::create('risks', function (Blueprint $table) {
             $table->id();
+            $table->string('nom');
+            $table->string('klass');
             $table->timestamps();
         });
     }

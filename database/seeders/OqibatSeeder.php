@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Oqibat;
 
 class OqibatSeeder extends Seeder
 {
@@ -13,6 +14,11 @@ class OqibatSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Oqibat::create([
+            'nom' => "Shikastlanish"]);
+        Oqibat::create([
+            'nom' => "Zararlanish"]);
+        Oqibat::create([
+            'nom' => "Yo'qolish"]);
     }
 }

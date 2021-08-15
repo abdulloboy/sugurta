@@ -15,6 +15,8 @@ class CreateObyektsTable extends Migration
     {
         Schema::create('obyekts', function (Blueprint $table) {
             $table->id();
+            $table->string('nom');
+            $table->string('klass');
             $table->timestamps();
         });
     }
