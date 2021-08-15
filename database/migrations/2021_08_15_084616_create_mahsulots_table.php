@@ -17,7 +17,7 @@ class CreateMahsulotsTable extends Migration
             $table->id();
             $table->foreignId('obyekt_id')->consrained()->cascadeOnDelete();
             $table->string('Nom');
-            $table->timestamp('Yaratilgan sana');
+            $table->timestamp('yaratilgan_sana');
             $table->timestamps();
         });
     }

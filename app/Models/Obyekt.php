@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Obyekt extends Model
 {
     use HasFactory;
+
+    public function mahsulots()
+    {
+        return $this->belongsToMany(Mahsulot::class);
+    }
 }

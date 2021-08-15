@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Risk extends Model
 {
     use HasFactory;
+
+    public function mahsulots()
+    {
+        return $this->belongsToMany(Mahsulot::class);
+    }
 }

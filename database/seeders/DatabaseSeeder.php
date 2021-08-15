@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             ObyektSeeder::class,
             OqibatSeeder::class,
             RiskSeeder::class,
+            MahsulotSeeder::class,
         ]);
     }
 }
