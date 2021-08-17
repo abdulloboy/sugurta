@@ -73,6 +73,6 @@
     },
     {
         "type": "relation",
-        "relation": "1tm,MahsulotRisk,risk_id"
+        "relation": "mtm,Mahsulot,risk_id,id"
     }
 ]

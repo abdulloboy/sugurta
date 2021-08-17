@@ -73,6 +73,6 @@
     },
     {
         "type": "relation",
-        "relation": "1tm,,mahsulot_id"
+        "relation": "1tm,Mahsulot,obyekt_id,id"
     }
 ]
