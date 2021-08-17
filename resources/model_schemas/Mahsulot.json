@@ -14,7 +14,7 @@
     {
         "name": "obyekt_id",
         "dbType": "bigInteger,false,true:foreign,obyekts,id",
-        "htmlType": null,
+        "htmlType": "select,",
         "validations": "required",
         "searchable": true,
         "fillable": true,
@@ -22,8 +22,7 @@
         "inForm": true,
         "inIndex": true,
         "inView": true,
-        "type": "relation",
-        "relation": "mt1,Obeykt,obyekt_id,id"
+        "relation": "mt1,Obyekt,obyekt_id,id"
     },
     {
         "name": "Nom",
