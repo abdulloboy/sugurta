@@ -13,7 +13,7 @@
     },
     {
         "name": "obyekt_id",
-        "dbType": "bigInteger,false,true",
+        "dbType": "bigInteger,false,true:foreign,obyekts,id",
         "htmlType": null,
         "validations": "required",
         "searchable": true,
@@ -21,7 +21,9 @@
         "primary": false,
         "inForm": true,
         "inIndex": true,
-        "inView": true
+        "inView": true,
+        "type": "relation",
+        "relation": "1tm,Obeykt,obyekt_id,id"
     },
     {
         "name": "Nom",
