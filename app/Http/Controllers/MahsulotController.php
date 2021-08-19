@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 use App\Models\Obyekt;
+use App\Models\Risk;
+use App\Models\Oqibat;
 
 class MahsulotController extends AppBaseController
 {
@@ -99,6 +101,8 @@ class MahsulotController extends AppBaseController
     {
         $mahsulot = $this->mahsulotRepository->find($id);
         $obyekts = Obyekt::all();
+        $risks = Risk::all();
+        $oqibats = Oqibat::all();
 
         if (empty($mahsulot)) {
             Flash::error('Mahsulot not found');
@@ -107,8 +111,8 @@ class MahsulotController extends AppBaseController
         }
 
         return view('mahsulots.edit')
-        ->with('mahsulot', $mahsulot)
-        ->with('obyekts', $obyekts);
+        ->compcats('mahsulot','obyekts'
+            ,'risks','oqibats');
     }
 
     /**

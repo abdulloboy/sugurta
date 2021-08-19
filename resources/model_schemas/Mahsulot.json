@@ -85,11 +85,29 @@
         "inView": false
     },
     {
-        "type": "relation",
+        "name": "risks",
+        "dbType": "bigInteger,false,true:foreign,risks,id",
+        "htmlType": "select,",
+        "validations": "required",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true,
         "relation": "mtm,Risk,mahsulot_id,id"
     },
     {
-        "type": "relation",
+        "name": "oqibats",
+        "dbType": "bigInteger,false,true:foreign,oqibats,id",
+        "htmlType": "select,",
+        "validations": "required",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true,
         "relation": "mtm,Oqibat,mahsulot_id,id"
     }
 ]

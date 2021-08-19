@@ -1,7 +1,7 @@
 <!-- Obyekt Id Field -->
 <div class="col-sm-12">
     {!! Form::label('obyekt_id', 'Obyekt:') !!}
-    <p>{{ $mahsulot->obyekt }}</p>
+    <p>{{ $mahsulot->obyekt->nom }}</p>
 </div>
 
 <!-- Nom Field -->
