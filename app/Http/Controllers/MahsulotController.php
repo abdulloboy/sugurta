@@ -45,10 +45,12 @@ class MahsulotController extends AppBaseController
      */
     public function create()
     {
-        $obyekts = Obyekt::all();
+        $obyekts = Obyekt::all()->sortBy('nom');
+        $risks = Risk::all()->sortBy('nom');
+        $oqibats = Oqibat::all()->sortBy('nom');
 
-        return view('mahsulots.create')
-            ->with('obyekts', $obyekts);
+        return view('mahsulots.create',
+            compact('obyekts','risks','oqibats'));
     }
 
     /**
@@ -86,8 +88,7 @@ class MahsulotController extends AppBaseController
             return redirect(route('mahsulots.index'));
         }
 
-        return view('mahsulots.show')
-            ->with('mahsulot', $mahsulot);
+        return view('mahsulots.show')->with('mahsulot', $mahsulot);
     }
 
     /**
@@ -100,9 +101,9 @@ class MahsulotController extends AppBaseController
     public function edit($id)
     {
         $mahsulot = $this->mahsulotRepository->find($id);
-        $obyekts = Obyekt::all();
-        $risks = Risk::all();
-        $oqibats = Oqibat::all();
+        $obyekts = Obyekt::all()->sortBy('nom');
+        $risks = Risk::all()->sortBy('nom');
+        $oqibats = Oqibat::all()->sortBy('nom');
 
         if (empty($mahsulot)) {
             Flash::error('Mahsulot not found');
@@ -110,9 +111,9 @@ class MahsulotController extends AppBaseController
             return redirect(route('mahsulots.index'));
         }
 
-        return view('mahsulots.edit')
-        ->compcats('mahsulot','obyekts'
-            ,'risks','oqibats');
+        return view('mahsulots.edit',
+            compact('mahsulot','obyekts'
+                ,'risks','oqibats'));    
     }
 
     /**

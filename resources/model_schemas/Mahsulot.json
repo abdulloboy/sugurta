@@ -85,7 +85,7 @@
         "inView": false
     },
     {
-        "name": "risks",
+        "name": "risk",
         "dbType": "bigInteger,false,true:foreign,risks,id",
         "htmlType": "select,",
         "validations": "required",
@@ -98,7 +98,7 @@
         "relation": "mtm,Risk,mahsulot_id,id"
     },
     {
-        "name": "oqibats",
+        "name": "oqibat",
         "dbType": "bigInteger,false,true:foreign,oqibats,id",
         "htmlType": "select,",
         "validations": "required",

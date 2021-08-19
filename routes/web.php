@@ -20,3 +20,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::resource('obyekts', App\Http\Controllers\ObyektController::class);
+
+
+Route::resource('risks', App\Http\Controllers\RiskController::class);
+
+
+Route::resource('oqibats', App\Http\Controllers\OqibatController::class);
+
+
+Route::resource('mahsulots', App\Http\Controllers\MahsulotController::class);

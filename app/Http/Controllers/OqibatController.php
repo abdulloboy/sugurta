@@ -2,84 +2,155 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Oqibat;
+use App\Http\Requests\CreateOqibatRequest;
+use App\Http\Requests\UpdateOqibatRequest;
+use App\Repositories\OqibatRepository;
+use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use Flash;
+use Response;
 
-class OqibatController extends Controller
+class OqibatController extends AppBaseController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    /** @var  OqibatRepository */
+    private $oqibatRepository;
+
+    public function __construct(OqibatRepository $oqibatRepo)
     {
-        //
+        $this->oqibatRepository = $oqibatRepo;
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display a listing of the Oqibat.
      *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     *
+     * @return Response
+     */
+    public function index(Request $request)
+    {
+        $oqibats = $this->oqibatRepository->all();
+
+        return view('oqibats.index')
+            ->with('oqibats', $oqibats);
+    }
+
+    /**
+     * Show the form for creating a new Oqibat.
+     *
+     * @return Response
      */
     public function create()
     {
-        //
+        return view('oqibats.create');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created Oqibat in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param CreateOqibatRequest $request
+     *
+     * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateOqibatRequest $request)
     {
-        //
+        $input = $request->all();
+
+        $oqibat = $this->oqibatRepository->create($input);
+
+        Flash::success('Oqibat saved successfully.');
+
+        return redirect(route('oqibats.index'));
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified Oqibat.
      *
-     * @param  \App\Models\Oqibat  $oqibat
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     *
+     * @return Response
      */
-    public function show(Oqibat $oqibat)
+    public function show($id)
     {
-        //
+        $oqibat = $this->oqibatRepository->find($id);
+
+        if (empty($oqibat)) {
+            Flash::error('Oqibat not found');
+
+            return redirect(route('oqibats.index'));
+        }
+
+        return view('oqibats.show')->with('oqibat', $oqibat);
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified Oqibat.
      *
-     * @param  \App\Models\Oqibat  $oqibat
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     *
+     * @return Response
      */
-    public function edit(Oqibat $oqibat)
+    public function edit($id)
     {
-        //
+        $oqibat = $this->oqibatRepository->find($id);
+
+        if (empty($oqibat)) {
+            Flash::error('Oqibat not found');
+
+            return redirect(route('oqibats.index'));
+        }
+
+        return view('oqibats.edit')->with('oqibat', $oqibat);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified Oqibat in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Oqibat  $oqibat
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @param UpdateOqibatRequest $request
+     *
+     * @return Response
      */
-    public function update(Request $request, Oqibat $oqibat)
+    public function update($id, UpdateOqibatRequest $request)
     {
-        //
+        $oqibat = $this->oqibatRepository->find($id);
+
+        if (empty($oqibat)) {
+            Flash::error('Oqibat not found');
+
+            return redirect(route('oqibats.index'));
+        }
+
+        $oqibat = $this->oqibatRepository->update($request->all(), $id);
+
+        Flash::success('Oqibat updated successfully.');
+
+        return redirect(route('oqibats.index'));
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified Oqibat from storage.
      *
-     * @param  \App\Models\Oqibat  $oqibat
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     *
+     * @throws \Exception
+     *
+     * @return Response
      */
-    public function destroy(Oqibat $oqibat)
+    public function destroy($id)
     {
-        //
+        $oqibat = $this->oqibatRepository->find($id);
+
+        if (empty($oqibat)) {
+            Flash::error('Oqibat not found');
+
+            return redirect(route('oqibats.index'));
+        }
+
+        $this->oqibatRepository->delete($id);
+
+        Flash::success('Oqibat deleted successfully.');
+
+        return redirect(route('oqibats.index'));
     }
 }

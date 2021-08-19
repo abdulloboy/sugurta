@@ -22,7 +22,11 @@ class ObyektFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nom' => $this->faker->word,
+        'klass' => $this->faker->word,
+        'created_at' => $this->faker->date('Y-m-d H:i:s'),
+        'updated_at' => $this->faker->date('Y-m-d H:i:s'),
+        'deleted_at' => $this->faker->date('Y-m-d H:i:s')
         ];
     }
 }

@@ -16,3 +16,15 @@
     <p>{{ $mahsulot->yaratilgan_sana }}</p>
 </div>
 
+<!-- Risk Field -->
+<div class="col-sm-12">
+    {!! Form::label('risk', 'Risk:') !!}
+    <p>{{ $mahsulot->risks->implode('nom',', ') }}</p>
+</div>
+
+<!-- Oqibat Field -->
+<div class="col-sm-12">
+    {!! Form::label('oqibat', 'Oqibat:') !!}
+    <p>{{ $mahsulot->oqibats->implode('nom',', ') }}</p>
+</div>
+

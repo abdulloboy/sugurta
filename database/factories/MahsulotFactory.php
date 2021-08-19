@@ -22,7 +22,14 @@ class MahsulotFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'obyekt_id' => $this->faker->word,
+        'Nom' => $this->faker->word,
+        'yaratilgan_sana' => $this->faker->date('Y-m-d H:i:s'),
+        'created_at' => $this->faker->date('Y-m-d H:i:s'),
+        'updated_at' => $this->faker->date('Y-m-d H:i:s'),
+        'deleted_at' => $this->faker->date('Y-m-d H:i:s'),
+        'risk' => $this->faker->word,
+        'oqibat' => $this->faker->word
         ];
     }
 }

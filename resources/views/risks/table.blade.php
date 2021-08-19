@@ -1,31 +1,25 @@
 <div class="table-responsive">
-    <table class="table" id="mahsulots-table">
+    <table class="table" id="risks-table">
         <thead>
         <tr>
-            <th>Obyekt</th>
-        <th>Nom</th>
-        <th>Yaratilgan Sana</th>
-        <th>Risks</th>
-        <th>Oqibats</th>
+            <th>Nom</th>
+        <th>Klass</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
         <tbody>
-        @foreach($mahsulots as $mahsulot)
+        @foreach($risks as $risk)
             <tr>
-                <td>{{ $mahsulot->obyekt->nom }}</td>
-            <td>{{ $mahsulot->Nom }}</td>
-            <td>{{ $mahsulot->yaratilgan_sana }}</td>
-            <td>{{ $mahsulot->risks->implode('nom',', ') }}</td>
-            <td>{{ $mahsulot->oqibats->implode('nom',', ') }}</td>
+                <td>{{ $risk->nom }}</td>
+            <td>{{ $risk->klass }}</td>
                 <td width="120">
-                    {!! Form::open(['route' => ['mahsulots.destroy', $mahsulot->id], 'method' => 'delete']) !!}
+                    {!! Form::open(['route' => ['risks.destroy', $risk->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <a href="{{ route('mahsulots.show', [$mahsulot->id]) }}"
+                        <a href="{{ route('risks.show', [$risk->id]) }}"
                            class='btn btn-default btn-xs'>
                             <i class="far fa-eye"></i>
                         </a>
-                        <a href="{{ route('mahsulots.edit', [$mahsulot->id]) }}"
+                        <a href="{{ route('risks.edit', [$risk->id]) }}"
                            class='btn btn-default btn-xs'>
                             <i class="far fa-edit"></i>
                         </a>

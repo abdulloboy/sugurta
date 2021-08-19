@@ -2,8 +2,8 @@
 <div class="form-group col-sm-6">
     {!! Form::label('obyekt_id', 'Obyekt:') !!}
     {!! Form::select('obyekt_id', 
-        $obyekts->sortBy('nom')->pluck('nom','id'),
-        null, 
+        $obyekts->pluck('nom','id'), 
+        isset($mahsulot) ? $mahsulot->obyekt_id : null, 
         ['class' => 'form-control custom-select']) 
     !!}
 </div>
@@ -30,3 +30,26 @@
         })
     </script>
 @endpush
+
+<!-- Risk Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('risks', 'Risks:') !!}
+    {!! Form::select('risks[]',
+        $risks->pluck('nom','id'),
+        isset($mahsulot) ? $mahsulot->risks->pluck('id') : null, 
+        ['class' => 'form-control custom-select',
+        'multiple']) 
+    !!}
+</div>
+
+
+<!-- Oqibat Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('oqibats', 'Oqibats:') !!}
+    {!! Form::select('oqibats[]', 
+        $oqibats->pluck('nom','id'), 
+        isset($mahsulot) ? $mahsulot->oqibats->pluck('id') : null, 
+        ['class' => 'form-control custom-select',
+        'multiple']) 
+    !!}
+</div>
