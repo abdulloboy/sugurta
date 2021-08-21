@@ -1,1 +1,1 @@
-htmlspecialchars_decode
+hello 2 world
