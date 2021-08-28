@@ -18,7 +18,6 @@ class CreateObyektsTable extends Migration
             $table->bigInteger('id', true, true);
             $table->string('nom', 255);
             $table->string('klass', 255);
-            $table->datetime('deleted_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

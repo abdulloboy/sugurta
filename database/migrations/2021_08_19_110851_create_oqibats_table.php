@@ -17,7 +17,6 @@ class CreateOqibatsTable extends Migration
         Schema::create('oqibats', function (Blueprint $table) {
             $table->bigInteger('id', true, true);
             $table->string('nom', 255);
-            $table->datetime('deleted_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
